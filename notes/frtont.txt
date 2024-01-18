@@ -1,2 +1,4 @@
 commands:
 ng generate component pages/main
+
+ng generate component modules/game/pages/play
