@@ -1,14 +1,24 @@
 import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { RouterOutlet } from '@angular/router';
+import { Socket } from 'ngx-socket-io';
+import { SocketService } from './services/socket.service';
 
 @Component({
   selector: 'app-root',
-  standalone: true,
-  imports: [CommonModule, RouterOutlet],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
-  title = 'front';
+  title = 'front2';
+  constructor(
+    private socket: Socket,
+    private socketService: SocketService, 
+  ) { }
+
+
+ngOnInit(){
+    this.socketService.test();
+    this.socket.on("echo", (data: string) => {
+      console.log(data);
+    });
+  }
 }
