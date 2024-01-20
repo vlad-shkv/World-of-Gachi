@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Socket } from 'ngx-socket-io';
+import { SocketService } from './services/socket.service';
 
 @Component({
   selector: 'app-root',
@@ -8,10 +9,16 @@ import { Socket } from 'ngx-socket-io';
 })
 export class AppComponent {
   title = 'front2';
-  constructor(private socket: Socket) { }
+  constructor(
+    private socket: Socket,
+    private socketService: SocketService, 
+  ) { }
 
 
-  onInit(){
-    this.socket.emit("chat-message-add", 'info')
+ngOnInit(){
+    this.socketService.test();
+    this.socket.on("echo", (data: string) => {
+      console.log(data);
+    });
   }
 }

@@ -45,6 +45,10 @@ app.use(function(err, req, res, next) {
 
 io.on('connection', (socket) => {
   console.log('a user connected');
+  socket.on("chat-message-add", (data)=>{
+    console.log(data);
+    socket.emit('echo', 'askdjfksjdfkas');
+  });
 });
 
 server.listen(3000, () => {
