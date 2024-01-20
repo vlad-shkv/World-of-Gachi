@@ -16,9 +16,5 @@ export class AppComponent {
 
 
 ngOnInit(){
-    this.socketService.test();
-    this.socket.on("echo", (data: string) => {
-      console.log(data);
-    });
   }
 }
