@@ -70,6 +70,14 @@ io.on("connection", (socket) => {
     console.log(data);
     socket.emit("echo", "askdjfksjdfkas");
   });
+
+  socket.on("get-my-info", (clb) => {
+    const userInfo = {
+      id: socket.id,
+      username: socket.username,
+    }
+    clb(userInfo);
+  });
 });
 
 server.listen(3000, () => {

@@ -3,8 +3,9 @@ import { Socket } from 'ngx-socket-io';
 import { SocketService } from '../../services/socket.service';
 import { CommonModule } from '@angular/common';
 
-interface User{
-  username: string
+interface User {
+  username: string;
+  id: string;
 }
 
 @Component({
@@ -28,6 +29,13 @@ export class GameComponent {
     this.socket.on('connected-users', (userList: User[]) => {
       console.log(userList);
       this.connectedUsers = userList;
+    });
+
+    this.socket.emit("get-my-info", (userInfo: User) => {
+      console.log(userInfo);
+      if (userInfo.username === "anonimus") {
+        
+      }
     });
   }
 }

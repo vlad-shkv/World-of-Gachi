@@ -12,3 +12,11 @@ body {
     justify-content: center;
     min-height: 100vh;
 }
+
+.card {
+    min-width: 5rem;
+    min-height: 3rem;
+    background-color: rgb(154, 114, 102);
+    border-radius: 1rem;
+    color: rgb(45, 5, 5);
+}
