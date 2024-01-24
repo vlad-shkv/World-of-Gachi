@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { CommonModule } from '@angular/common';
 
 import { SocketIoModule, SocketIoConfig } from 'ngx-socket-io';
 const config: SocketIoConfig = { url: 'http://localhost:3000', options: {} };
@@ -15,7 +16,7 @@ import { AppComponent } from './app.component';
     BrowserModule,
     AppRoutingModule,
     SocketIoModule.forRoot(config),
-
+    CommonModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

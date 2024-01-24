@@ -1,15 +1,22 @@
 import { Component } from '@angular/core';
 import { Socket } from 'ngx-socket-io';
 import { SocketService } from '../../services/socket.service';
+import { CommonModule } from '@angular/common';
+
+interface User{
+  username: string
+}
 
 @Component({
   selector: 'app-game',
   standalone: true,
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './game.component.html',
   styleUrl: './game.component.scss'
 })
+
 export class GameComponent {
+  public connectedUsers: User[] = [];
   constructor(
     private socket: Socket,
     private socketService: SocketService,
@@ -18,8 +25,9 @@ export class GameComponent {
 
   ngOnInit(){
     this.socketService.test();
-    this.socket.on('connected-users', (data: string) => {
-      console.log(data);
+    this.socket.on('connected-users', (userList: User[]) => {
+      console.log(userList);
+      this.connectedUsers = userList;
     });
   }
 }
