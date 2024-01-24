@@ -34,7 +34,10 @@ export class GameComponent {
     this.socket.emit("get-my-info", (userInfo: User) => {
       console.log(userInfo);
       if (userInfo.username === "anonimus") {
-        
+        // show dialog 
+        // get dioalog data from dialog
+        // validate data "not emty"
+        // send username to backend
       }
     });
   }
