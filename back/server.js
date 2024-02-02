@@ -45,18 +45,23 @@ app.use(function (err, req, res, next) {
 
 const connectedSockets = {};
 
+function refreshUserList() {
+  const socketArray = Object.values(connectedSockets);
+  const userList = socketArray.map((s) => ({ username: s.username }));
+  io.emit("connected-users", userList);
+}
+
 io.on("connection", (socket) => {
   console.log("a user connected");
   socket.username = "anonimus";
   connectedSockets[socket.id] = socket;
 
   // send refreshed user list
-  const socketArray = Object.values(connectedSockets);
-  const userList = socketArray.map((s) => ({ username: s.username }));
-  socket.emit("connected-users", userList);
+  refreshUserList();
 
   socket.on("disconnect", () => {
     delete connectedSockets[socket.id];
+    refreshUserList();
     //changeConnections(socket, io);
   });
 
@@ -77,6 +82,11 @@ io.on("connection", (socket) => {
       username: socket.username,
     }
     clb(userInfo);
+  });
+
+  socket.on("set-username", (username) => {
+    socket.username = username;
+    refreshUserList();
   });
 });
 

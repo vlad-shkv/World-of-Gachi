@@ -15,6 +15,7 @@ interface Error {
 }
 
 interface EnterForm {
+  isOpen: boolean,
   username: string,
   error: Error
 }
@@ -30,6 +31,7 @@ interface EnterForm {
 export class GameComponent {
   public connectedUsers: User[] = [];
   public enterForm: EnterForm = {
+    isOpen: false,
     username: '',
     error: {
       isEmpty: false,
@@ -44,6 +46,12 @@ export class GameComponent {
   }
 
   ngOnInit(){
+    const username = localStorage.getItem("username");
+    if (!username) {
+      this.enterForm.isOpen = true;
+    } else {
+      this.socket.emit("set-username", username);
+    }
     this.socketService.test();
     this.socket.on('connected-users', (userList: User[]) => {
       console.log(userList);
@@ -59,10 +67,19 @@ export class GameComponent {
   }
 
   submitName() {
-    let input = document.getElementById("inputName") as HTMLInputElement;
-    let err = document.querySelector(".error") as HTMLElement;
-    if (input.value === "") {
-      err.style.opacity = "1";
+    if (this.enterForm.username === "") {
+      this.enterForm.error.isEmpty = true;
+      return;
     }
+    if (this.enterForm.username.length > 20) {
+      this.enterForm.error.tooLong = true;
+      return;
+    }
+
+    localStorage.setItem("username", this.enterForm.username);
+    this.socket.emit("set-username", this.enterForm.username);
+
+    this.enterForm.isOpen = false;
   }
+
 }
