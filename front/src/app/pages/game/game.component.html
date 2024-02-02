@@ -1,9 +1,11 @@
 <div class="page">
     <div class="dialog">
         <div class="card">
-            Please type your username:
-            <input type="text">
-            <button>Submit</button>
+            <label for="inputName">Please type your username:</label>
+            <input id="inputName" type="text" [(ngModel)]="enterForm.username">
+            <span class="error">* Inut is empty!!!</span>
+            <button onclick="submitName()">Submit</button>
+            {{enterForm.username}}
         </div>
     </div>
     <div class="big"></div>
