@@ -1,5 +1,112 @@
-.play {
-    padding: 2rem 6rem;
-    border: 2px solid rgb(20, 13, 13);
-    background-color: rgb(92, 54, 54);
+@import url('https://fonts.googleapis.com/css2?family=Protest+Revolution&display=swap');
+
+.play, .options {
+    padding: 2.5rem 8rem;
+    border: 2px solid rgba(20, 13, 13, 0.168);
+    border-radius: 3px;
+    background: url(/assets/imgs/kraska_holst_mazki_140994_1280x720.jpg);
+    opacity: 0.9;
+    font-size: 40px;
+    color: #1c1304;
+    letter-spacing: 8px;
+    box-shadow: 0px 0px 20px 2px black;
+    text-shadow: -7px 0pc 6px;
+    transition: 0.2s;
+    cursor: pointer;
+    margin-bottom: 15px;
+    margin-top: 15px;
+    font-family: "Protest Revolution", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.options {
+    padding: 2rem 4rem;
+    font-size: 30px;
+}
+
+.play:hover {
+    text-shadow: -1px 0pc 3px;
+    opacity: 1;
+    padding: 2.4rem 7.9rem;
+    box-shadow: 0px 0px 20px 3px rgba(0, 0, 0, 0.896);
+    margin-bottom: 19px;
+}
+
+.options:hover {
+    text-shadow: -1px 0pc 3px;
+    opacity: 1;
+    padding: 1.9rem 3.9rem;
+    box-shadow: 0px 0px 20px 3px rgba(0, 0, 0, 0.896);
+    margin-top: 18px;
+}
+
+.play:active {
+    text-shadow: 0px 0pc 3px;
+    opacity: 1;
+    padding: 2.2rem 7.6rem;
+    box-shadow: 0px 0px 20px 3px rgba(0, 0, 0, 0.896);
+    filter: blur(1px);
+}
+
+.page {
+    background-image: url(/assets/imgs/e4482e3c1a798e342fccb4de3129fa0b.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 120rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.header {
+    box-sizing: border-box;
+    height: 5.6rem;
+    position: relative;
+    top: 0px;
+    background: url(/assets/imgs/kraska_holst_mazki_140994_1280x720.jpg);
+    opacity: 0.8;
+    width: 100%;
+    background-size: 100%;
+    box-shadow: 0px 8px 20px 6px #0000007d;
+    display: flex;
+    align-items: flex-start;
+    padding-left: 70px;
+    padding-right: 70px;
+    padding-bottom: 3px;
+}
+
+.menu {
+    flex-grow: 4;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo {
+    height: 5rem;
+    width: 50%;
+    display: flex;
+    align-items: center;
+    font-size: 30px;
+    font-family: "Protest Revolution", sans-serif;
+    font-weight: 200;
+    font-style: normal;
+    gap: 4px;
+}
+
+.logo-img {
+    height: 4.3rem;
+    width: 4.3rem;
+    background-image: url(/assets/imgs/gay-symbol.svg);
+    background-size: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0.9;
+}
+
+.logo-text {
+    transform: translate(-1px, 10px);
+    padding-bottom: 2px;
+    color: #1c1304;
 }
