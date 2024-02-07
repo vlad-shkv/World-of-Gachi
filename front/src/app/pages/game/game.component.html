@@ -9,12 +9,22 @@
             {{enterForm.username}}
         </div>
     </div>
-    <div class="big"></div>
     <div class="chat-panel">
         <div class="connected-users">
             <div class="user" *ngFor="let user of connectedUsers">
                 {{user.username}}
             </div>
+        </div>
+        <div class="message-panel">
+            <div class="messages">
+                <div class="message" *ngFor="let msg of messages">
+                    {{msg.text}}
+                </div>
+            </div>
+        </div>
+        <div class="input-panel">
+            <textarea [(ngModel)]="newMessage" class="message-input"></textarea>
+            <button (click)="sendMessage()" class="send-button">Send</button>
         </div>
     </div>
 </div>

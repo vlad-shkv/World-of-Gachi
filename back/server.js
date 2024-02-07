@@ -88,6 +88,16 @@ io.on("connection", (socket) => {
     socket.username = username;
     refreshUserList();
   });
+
+  socket.on("new-message", (text) => {
+    const newMessage = {
+      text,
+      username: socket.username,
+      userId: socket.id,
+      data: new Date(),
+    };
+    io.emit("new-message-from-back", newMessage);
+  })
 });
 
 server.listen(3000, () => {

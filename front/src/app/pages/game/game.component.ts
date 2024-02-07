@@ -9,6 +9,13 @@ interface User {
   id: string;
 }
 
+interface Message {
+  username: string,
+  userid: string, 
+  text: string,
+  date: Date,
+}
+
 interface Error {
   isEmpty: boolean,
   tooLong: boolean
@@ -39,6 +46,17 @@ export class GameComponent {
     }
   };
 
+  public messages: Message[] = [
+    {
+      username: "dumbName",
+      userid: "wi49wro93", 
+      text: "Hello bitches",    
+      date: new Date(),
+    }
+  ];
+
+  public newMessage: string = "";
+
   constructor(
     private socket: Socket,
     private socketService: SocketService,
@@ -64,6 +82,10 @@ export class GameComponent {
         
       }
     });
+
+    this.socket.on("new-message-from-back", (newMessage: Message) => {
+      this.messages.push(newMessage);
+    })
   }
 
   submitName() {
@@ -82,4 +104,9 @@ export class GameComponent {
     this.enterForm.isOpen = false;
   }
 
+  sendMessage() {
+    if (!this.newMessage) return;
+    this.socket.emit("new-message", this.newMessage);
+    this.newMessage = "";
+  }
 }
