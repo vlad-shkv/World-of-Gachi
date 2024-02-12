@@ -47,12 +47,6 @@ export class GameComponent {
   };
 
   public messages: Message[] = [
-    {
-      username: "dumbName",
-      userId: "wi49wro93", 
-      text: "Hello bitches",    
-      date: new Date(),
-    }
   ];
 
   public newMessage: string = "";
