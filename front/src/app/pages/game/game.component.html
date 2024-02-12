@@ -18,7 +18,14 @@
         <div class="message-panel">
             <div class="messages">
                 <div class="message" *ngFor="let msg of messages">
-                    {{msg.text}}
+                    <div class="my-message" *ngIf="msg.userId === userId">
+                        <div class="message-user">{{msg.username}}</div>
+                        <div class="message-content">{{msg.text}}</div>
+                    </div>
+                    <div class="other-message" *ngIf="msg.userId !== userId">
+                        <div class="message-user">{{msg.username}}</div>
+                        <div class="message-content">{{msg.text}}</div>
+                    </div>
                 </div>
             </div>
         </div>

@@ -56,6 +56,8 @@ io.on("connection", (socket) => {
   socket.username = "anonimus";
   connectedSockets[socket.id] = socket;
 
+  socket.emit("set-socket-id", socket.id);
+
   // send refreshed user list
   refreshUserList();
 

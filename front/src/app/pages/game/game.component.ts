@@ -11,7 +11,7 @@ interface User {
 
 interface Message {
   username: string,
-  userid: string, 
+  userId: string, 
   text: string,
   date: Date,
 }
@@ -49,13 +49,14 @@ export class GameComponent {
   public messages: Message[] = [
     {
       username: "dumbName",
-      userid: "wi49wro93", 
+      userId: "wi49wro93", 
       text: "Hello bitches",    
       date: new Date(),
     }
   ];
 
   public newMessage: string = "";
+  public userId: string = "";
 
   constructor(
     private socket: Socket,
@@ -64,6 +65,9 @@ export class GameComponent {
   }
 
   ngOnInit(){
+    this.socket.on("set-socket-id", (id: string) => {
+      this.userId = id;
+    });
     const username = localStorage.getItem("username");
     if (!username) {
       this.enterForm.isOpen = true;

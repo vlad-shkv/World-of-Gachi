@@ -2,6 +2,13 @@
     width: 100%;
 }
 
+.page {
+    background-image: url(/assets/imgs/e867b6f09a9b30bace79962804d3f61b.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 120rem;
+}
+
 .chat-panel {
     width: 15rem;
     background-color: rgb(120, 79, 79);
@@ -70,10 +77,36 @@
 
   .message-panel {
     flex-grow: 1;
-    .messages {
-      .message {
+  }
+
+  .messages {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 15px;
+  }
+
+  .message-user {
+    font-size: 15px;
+    padding-bottom: 5px;
+  }
+
+  .my-message {
+    .message-content {
+        background-color: rgb(198, 223, 230);
+        padding: 10px 20px;
+        border-radius: 100px;
+        border-top-right-radius: 1px;
       }
-    }
+  }
+
+  .other-message {
+    .message-content {
+        background-color: rgb(248, 244, 244);
+        padding: 10px 20px;
+        border-radius: 100px;
+        border-top-left-radius: 1px;
+      }
   }
 
   .input-panel {
@@ -81,10 +114,6 @@
     width: 100%;
     flex-wrap: wrap;
     .message-input {
-        width: 100%;
-    }
-
-    .send-button {
-
+        width: 186px;
     }
   }
