@@ -115,6 +115,10 @@ io.on("connection", (socket) => {
       socket.isPlayer = true;
     })
   })
+
+  socket.on("check-game-status", (clb) => {
+    clb(gameInfo);
+  })
 });
 
 server.listen(3000, () => {

@@ -7,7 +7,7 @@
         </div>
     </header>
     <section class="menu">
-        <button class="play" (click)="startGame()">
+        <button class="play" *ngIf="!isGameStarted" (click)="startGame()">
             PLAY
         </button>
         <button class="options" routerLink="/">
