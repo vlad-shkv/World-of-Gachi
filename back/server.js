@@ -44,10 +44,17 @@ app.use(function (err, req, res, next) {
 });
 
 const connectedSockets = {};
+const gameInfo = {
+  isStarted: false,
+}
 
 function refreshUserList() {
   const socketArray = Object.values(connectedSockets);
-  const userList = socketArray.map((s) => ({ username: s.username }));
+  const userList = socketArray.map((s) => ({ 
+    username: s.username,
+    id: s.id,
+    isPlayer: s.isPlayer
+  }));
   io.emit("connected-users", userList);
 }
 
@@ -99,6 +106,14 @@ io.on("connection", (socket) => {
       data: new Date(),
     };
     io.emit("new-message-from-back", newMessage);
+  });
+
+  socket.on("start-game", () => {
+    if (gameInfo.isStarted) return;
+    gameInfo.isStarted = true;
+    Object.entries(connectedSockets).forEach(([id, socket]) => {
+      socket.isPlayer = true;
+    })
   })
 });
 

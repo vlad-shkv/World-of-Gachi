@@ -68,7 +68,6 @@ export class GameComponent {
     } else {
       this.socket.emit("set-username", username);
     }
-    this.socketService.test();
     this.socket.on('connected-users', (userList: User[]) => {
       console.log(userList);
       this.connectedUsers = userList;

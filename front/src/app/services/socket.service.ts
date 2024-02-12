@@ -12,7 +12,7 @@ export class SocketService {
 
   }
 
-  test() {
-    this.socket.emit("chat-message-add", 'info');
+  startGame() {
+    this.socket.emit("start-game");
   }
 }
