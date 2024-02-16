@@ -16,5 +16,6 @@ export class AppComponent {
 
 
 ngOnInit(){
+  this.socketService.init();
   }
 }

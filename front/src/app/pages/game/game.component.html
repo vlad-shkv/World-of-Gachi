@@ -17,7 +17,7 @@
         </div>
         <div class="message-panel">
             <div class="messages">
-                <div class="message" *ngFor="let msg of messages">
+                <div class="message" *ngFor="let msg of socketService.messages">
                     <div class="my-message" *ngIf="msg.userId === userId">
                         <div class="message-user">{{msg.username}}</div>
                         <div class="message-content">{{msg.text}}</div>
