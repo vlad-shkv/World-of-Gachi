@@ -11,10 +11,11 @@
 
 .chat-panel {
     width: 15rem;
-    background-color: rgb(120, 79, 79);
+    background: #864f26;
     height: 100vh;
     display: flex;
     flex-direction: column;
+    box-shadow: -10px 0px 20px 0px #00000069;
 }
 
 .user {
@@ -72,7 +73,7 @@
 }
 
 .connected-users {
-    border-bottom: 2px solid white;
+    border-bottom: 2px solid rgb(255, 255, 255);
 }
 
   .message-panel {
@@ -91,9 +92,17 @@
     padding-bottom: 5px;
   }
 
+  .message-time {
+    font-size: 10px;
+    position: absolute;
+    right: 10px;
+    bottom: 4px;
+  }
+
   .my-message {
+    position: relative;
     .message-content {
-        background-color: rgb(198, 223, 230);
+        background-color: rgba(198, 223, 230, 0.908);
         padding: 10px 20px;
         border-radius: 100px;
         border-top-right-radius: 1px;
@@ -101,8 +110,9 @@
   }
 
   .other-message {
+    position: relative;
     .message-content {
-        background-color: rgb(248, 244, 244);
+        background-color: rgba(248, 244, 244, 0.881);
         padding: 10px 20px;
         border-radius: 100px;
         border-top-left-radius: 1px;
@@ -113,7 +123,25 @@
     display: flex;
     width: 100%;
     flex-wrap: wrap;
-    .message-input {
-        width: 186px;
+    .message-input, .message-input:active, .message-input:focus {
+        width: 192px;
+        border: #4a280f 3px solid;
+        box-sizing: border-box;
+        outline: none;
+    }
+    .send-button {
+        background-color: #a25c2d;
+        border: #4a280f;
+        border-top: #4a280f 3px solid;
+        border-bottom: #4a280f 3px solid;
+        border-right: #4a280f 3px solid;
+        width: 48px;
+        cursor: pointer;
+    }
+    .send-button:hover {
+        background-color: #925125;
+    }
+    .send-button:active {
+        background-color: #76401c;
     }
   }

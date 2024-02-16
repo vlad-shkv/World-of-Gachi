@@ -103,7 +103,7 @@ io.on("connection", (socket) => {
       text,
       username: socket.username,
       userId: socket.id,
-      data: new Date(),
+      data: (new Date()).toString().slice(15, 21),
     };
     io.emit("new-message-from-back", newMessage);
   });

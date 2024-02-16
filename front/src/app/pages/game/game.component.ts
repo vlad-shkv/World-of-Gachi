@@ -13,7 +13,7 @@ interface Message {
   username: string,
   userId: string, 
   text: string,
-  date: Date,
+  data: Date,
 }
 
 interface Error {
@@ -61,6 +61,7 @@ export class GameComponent {
   ngOnInit(){
     this.socket.on("set-socket-id", (id: string) => {
       this.userId = id;
+      console.log(this.userId);
     });
     const username = localStorage.getItem("username");
     if (!username) {

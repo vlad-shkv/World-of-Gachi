@@ -4,6 +4,7 @@ import { MainComponent } from '../../../front/src/app/pages/main/main.component'
 import { P404Component } from '../../../front/src/app/pages/p404/p404.component';
 import { AboutComponent } from '../../../front/src/app/pages/about/about.component';
 import { GameComponent } from '../../../front/src/app/pages/game/game.component';
+import { ProfileComponent } from './pages/profile/profile.component';
 
 export const routes: Routes = [
     //{path: 'game', loadChildren: () => import('./modules/game/game.module').then(mod => mod.GameModule)},
@@ -11,6 +12,7 @@ export const routes: Routes = [
     {path: 'about', component: AboutComponent},
     {path: 'p404', component: P404Component},
     {path: 'game', component: GameComponent},
+    {path: 'profile', component: ProfileComponent},
     {path: '**', redirectTo: "/p404"},
 ];
 

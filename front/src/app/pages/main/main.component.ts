@@ -16,6 +16,8 @@ export class MainComponent {
 
 public isGameStarted: boolean = false;
 
+ public gameStatusInt: number = window.setInterval(this.check.bind(this), 1000);
+
   constructor(
     private router: Router,
     private socketService: SocketService,
@@ -23,13 +25,18 @@ public isGameStarted: boolean = false;
 
   }
 
-  async ngOnInit() {
-    setInterval(async () => {
+  async check(){
       const gameInfo: any = await this.socketService.checkGameStatus();
       console.log(gameInfo);
       this.isGameStarted = gameInfo.isStarted;
-    },
-    1000)
+  }
+
+  async ngOnInit() {
+
+  }
+
+  ngOnDestroy() {
+    clearInterval(this.gameStatusInt)
   }
 
   startGame() {

@@ -21,10 +21,12 @@
                     <div class="my-message" *ngIf="msg.userId === userId">
                         <div class="message-user">{{msg.username}}</div>
                         <div class="message-content">{{msg.text}}</div>
+                        <div class="message-time">{{msg.data}}</div>
                     </div>
                     <div class="other-message" *ngIf="msg.userId !== userId">
                         <div class="message-user">{{msg.username}}</div>
                         <div class="message-content">{{msg.text}}</div>
+                        <div class="message-time">{{msg.data}}</div>
                     </div>
                 </div>
             </div>
