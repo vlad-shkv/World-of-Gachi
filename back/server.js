@@ -119,6 +119,13 @@ io.on("connection", (socket) => {
   socket.on("check-game-status", (clb) => {
     clb(gameInfo);
   })
+
+  socket.on('stop-game', () => {
+    gameInfo.isStarted = false;
+    Object.entries(connectedSockets).forEach(([id, socket]) => {
+      socket.isPlayer = false;
+    })
+  })
 });
 
 server.listen(3000, () => {

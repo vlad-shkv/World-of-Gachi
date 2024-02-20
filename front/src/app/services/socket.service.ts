@@ -79,4 +79,8 @@ export class SocketService {
       });
     });
   }
+
+  stopGame() {
+    this.socket.emit('stop-game');
+  }
 }

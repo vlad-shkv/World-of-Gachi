@@ -1,53 +1,38 @@
 .play, .options {
-    padding: 2.5rem 8rem;
-    border: 2px solid rgba(20, 13, 13, 0.168);
-    border-radius: 3px;
-    background: url(/assets/imgs/kraska_holst_mazki_140994_1280x720.jpg);
-    opacity: 0.9;
-    font-size: 40px;
     color: #1c1304;
     letter-spacing: 8px;
-    box-shadow: 0px 0px 20px 2px black;
-    text-shadow: -7px 0pc 6px;
-    transition: 0.2s;
     cursor: pointer;
-    margin-bottom: 15px;
-    margin-top: 15px;
     font-family: "Protest Revolution", sans-serif;
 }
 
+.play {
+    font-size: 40px;
+    background: rgba(0, 0, 0, 0);
+    border: 0px;
+    background-image: url(/assets/imgs/Button_Blue_9Slides.png);
+    background-size: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 18rem;
+    width: 17rem;
+}
+
 .options {
-    padding: 2rem 4rem;
-    font-size: 30px;
-}
-
-.play:hover {
-    text-shadow: -1px 0pc 3px;
-    opacity: 1;
-    padding: 2.4rem 7.9rem;
-    box-shadow: 0px 0px 20px 3px rgba(0, 0, 0, 0.896);
-}
-
-.options:hover {
-    text-shadow: -1px 0pc 3px;
-    opacity: 1;
-    padding: 1.9rem 3.9rem;
-    box-shadow: 0px 0px 20px 3px rgba(0, 0, 0, 0.896);
-}
-
-.play:active {
-    text-shadow: 0px 0pc 3px;
-    opacity: 1;
-    padding: 2.2rem 7.6rem;
-    box-shadow: 0px 0px 20px 3px rgba(0, 0, 0, 0.896);
-    filter: blur(1px);
+    font-size: 25px;
+    background: rgba(0, 0, 0, 0);
+    border: 0px;
+    background-image: url(/assets/imgs/Button_Hover_3Slides.png);
+    background-size: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 7rem;
+    width: 17rem;
 }
 
 .page {
-    background-image: url(/assets/imgs/e4482e3c1a798e342fccb4de3129fa0b.jpg);
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: 120rem;
+    background-image: url(/assets/imgs/eqMZWi.png);
+    background-repeat: repeat-y;
+    background-position: 50% 0;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -56,92 +41,73 @@
 .header {
     box-sizing: border-box;
     height: 5.6rem;
-    background: url(/assets/imgs/kraska_holst_mazki_140994_1280x720.jpg);
-    opacity: 0.9;
     width: 100%;
-    background-size: 100%;
-    box-shadow: 0px 8px 20px 6px #0000007d;
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding-left: 70px;
     padding-right: 70px;
     padding-bottom: 3px;
-    border-bottom: 4px solid rgba(61, 32, 9, 0.314);
+    background: url(/assets/imgs/Ribbon_Yellow_Connection_Up_Pressed.png);
+    background-size: 67px;
+    background-repeat: repeat;
 }
 
 .menu {
-    height: 19rem;
+    height: 43rem;
+    width: 59rem;
     display: flex;
-    flex-direction: column;
+    background-image: url(/assets/imgs/mainMenu.png);
+    background-size: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
     justify-content: space-between;
     align-items: center;
 }
 
-.logo {
-    height: 5rem;
-    width: 50%;
+.button-container {
+    height: 24rem;
+    width: 22rem;
     display: flex;
-    align-items: center;
-    font-size: 30px;
-    font-family: "Protest Revolution", sans-serif;
-    font-weight: 200;
-    font-style: normal;
-    gap: 4px;
+    flex-direction: column;
+    margin-left: 50px;
 }
 
-.logo-img {
-    height: 4.3rem;
-    width: 4.3rem;
-    background-image: url(/assets/imgs/gay-symbol.svg);
+.users-panel {
+    background-image: url(/assets/imgs/Carved_9Slides.png);
     background-size: 100%;
     background-position: center;
     background-repeat: no-repeat;
-    opacity: 0.9;
+    margin-right: 70px;
+    height: 20rem;
+    width: 19rem;
+    transform: translateY(26px);
+    position: relative;
 }
 
-.logo-text {
-    transform: translate(-1px, 10px);
-    padding-bottom: 2px;
-    color: #1c1304;
+.users-panel::before {
+    content: "Connected users:";
+    position: absolute;
+    font-size: 35px;
+    top: -57px;
+    right: 29px;
 }
 
 footer {
     box-sizing: border-box;
     height: 2.6rem;
-    background: url(/assets/imgs/kraska_holst_mazki_140994_1280x720.jpg);
-    opacity: 0.9;
     width: 100%;
-    background-size: 100%;
-    box-shadow: 0px 8px 20px 6px #0000007d;
     display: flex;
     padding-left: 70px;
     padding-right: 70px;
-    border-top: 4px solid rgba(61, 32, 9, 0.314);
     justify-content: center;
     align-items: center;
     font-size: 22px;
+    background-position: top;
+    background: url(/assets/imgs/Ribbon_Yellow_Connection_Up_PressedRev.png);
 
     a {
         color: #1c1304;
         margin-left: 10px;
     }
-}
-
-.profile {
-    height: 80px;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    transform: translateY(5px);
-    cursor: pointer;
-}
-
-.profile-img {
-    background-image: url(/assets/imgs/profile-user.svg);
-    height: 50px;
-    width: 50px;
-    background-size: 100%;
 }

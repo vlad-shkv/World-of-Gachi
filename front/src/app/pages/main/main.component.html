@@ -1,22 +1,21 @@
 <div class="page">
     <header class="header">
-        <div class="logo">
-            <div class="logo-text">W</div>
-            <div class="logo-img"></div>
-            <div class="logo-text">G</div>
-        </div>
-        <div class="profile" routerLink="/profile">
-            <div class="profile-img"></div>
-            <div>Profile</div>
-        </div>
+        <button (click)="socketService.stopGame()">Stop Game</button>
     </header>
     <section class="menu">
-        <button class="play" *ngIf="!isGameStarted" (click)="startGame()">
-            PLAY
-        </button>
-        <button class="options" routerLink="/">
-            OPTIONS
-        </button>
+        <div class="button-container">
+            <button class="play" *ngIf="!isGameStarted" (click)="startGame()">
+                PLAY
+            </button>
+            <button class="options" routerLink="/">
+                OPTIONS
+            </button>
+        </div>
+        <div class="users-panel">
+            <div class="user" *ngFor="let user of socketService.connectedUsers">
+                {{user.username}}
+            </div>
+        </div>
     </section>
     <footer>
         Github:<a href="https://github.com/vlad-shkv">vlad-shkv</a>

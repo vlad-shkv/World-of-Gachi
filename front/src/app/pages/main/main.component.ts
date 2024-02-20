@@ -20,7 +20,7 @@ public isGameStarted: boolean = false;
 
   constructor(
     private router: Router,
-    private socketService: SocketService,
+    public socketService: SocketService,
   ) {
 
   }
